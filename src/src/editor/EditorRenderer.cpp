@@ -1,3 +1,4 @@
+#include <glad/glad.h>
 #include <editor/EditorRenderer.h>
 #include <editor/EditorActions.h>
 #include <rendering/RenderToolbox.h>
@@ -11,6 +12,7 @@
 #include <editor/DefaultEditorController.h>
 #include <editor/GEditorToolbox.h>
 #include <editor/GEditorSettings.h>
+#include <glfw/glfw3.h>
 
 #include "rendering/Framebuffer.h"
 

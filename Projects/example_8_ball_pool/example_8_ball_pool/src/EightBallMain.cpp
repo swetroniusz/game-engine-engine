@@ -2,7 +2,9 @@
 #define CEREAL_LOAD_FUNCTION_NAME Load
 #define CEREAL_SAVE_FUNCTION_NAME Save
 #define CEREAL_SERIALIZE_FUNCTION_NAME Serialize
+#include <glad/glad.h>
 #include <editor/GameEngineEngineEditor.h>
+#include <glfw/glfw3.h>
 #include <utility/Log.h>
  
 using namespace GEE;

@@ -2,6 +2,7 @@
 #include <game/GameScene.h>
 #include <game/IDSystem.h>
 #include <assetload/FileLoader.h>
+#include <glad/glad.h>
 #include <scene/ModelComponent.h>
 #include <physics/CollisionObject.h>
 #include <rendering/RenderInfo.h>
@@ -313,7 +314,6 @@ namespace GEE
 				continue;
 
 			AnimationChannel& channel = *animation->Channels[i];
-
 			for (int j = 0; j < static_cast<int>(channel.PosKeys.size() - 1); j++)
 				ComponentTransform.AddInterpolator<Vec3f>("position", channel.PosKeys[j]->KeyTime, channel.PosKeys[j + 1]->KeyTime - channel.PosKeys[j]->KeyTime, channel.PosKeys[j]->Value, channel.PosKeys[j + 1]->Value);
 

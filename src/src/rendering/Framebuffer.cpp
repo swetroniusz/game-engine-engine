@@ -1,13 +1,25 @@
+#include <glad/glad.h>
 #include <rendering/Framebuffer.h>
 #include <iostream>
 #include <algorithm>
 #include <game/GameManager.h> //delete after PrimitiveDebugging is done
 
 
-
 namespace GEE
 {
 	using namespace GEE_FB;
+
+	AttachmentSlot AttachmentSlot::Color(unsigned colorSlot)
+	{ return AttachmentSlot(GL_COLOR_ATTACHMENT0 + colorSlot, true); }
+
+	AttachmentSlot AttachmentSlot::Depth()
+	{ return GL_DEPTH_ATTACHMENT; }
+
+	AttachmentSlot AttachmentSlot::Stencil()
+	{ return GL_STENCIL_ATTACHMENT; }
+
+	AttachmentSlot AttachmentSlot::DepthStencil()
+	{ return GL_DEPTH_STENCIL_ATTACHMENT; }
 
 	FramebufferAttachment::FramebufferAttachment(const NamedTexture& tex, AttachmentSlot specifySlot, unsigned int mipLevel):
 		FramebufferAttachment(tex, std::numeric_limits<unsigned int>::max(), specifySlot, mipLevel)

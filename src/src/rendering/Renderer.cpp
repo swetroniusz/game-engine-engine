@@ -1,9 +1,11 @@
+#include <glad/glad.h>
 #include <rendering/Renderer.h>
 #include <rendering/Mesh.h>
 #include <rendering/Framebuffer.h>
 #include <rendering/RenderInfo.h>
 #include <rendering/RenderToolbox.h>
 #include <game/GameScene.h>
+#include <glfw/glfw3.h>
 #include <rendering/LightProbe.h>
 #include <scene/LightProbeComponent.h>
 #include <rendering/OutlineRenderer.h>
@@ -1152,6 +1154,7 @@ namespace GEE
 	}
 	void TextRenderer::RenderText(const SceneMatrixInfo& infoPreConvert, const Font::Variation& fontVariation, const std::string& content, const std::vector<Transform>& letterTransforms, const Vec3f& color, Shader* shader, bool convertFromPx, Alignment2D alignment)
 	{
+		return;
 		GEE_CORE_ASSERT(letterTransforms.size() == content.length())
 		if (!ShaderInfo(MaterialShaderHint::None).MatchesRequiredInfo(infoPreConvert.GetRequiredShaderInfo()) && shader && shader->GetName() != "TextShader")	///TODO: CHANGE IT SO TEXTS USE MATERIALS SO THEY CAN BE RENDERED USING DIFFERENT SHADERS!!!!
 			return;

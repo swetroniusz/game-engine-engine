@@ -1,3 +1,4 @@
+#include <glad/glad.h>
 #include <scene/Actor.h>
 #include <rendering/LightProbe.h>
 #include <scene/RenderableComponent.h>

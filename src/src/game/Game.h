@@ -6,6 +6,8 @@
 #include "GameScene.h"
 #include <input/Event.h>
 
+typedef int GLsizei;
+
 namespace GEE
 {
 	/*
@@ -137,6 +139,6 @@ namespace GEE
 
 	namespace DebugCallbacks
 	{
-		void APIENTRY OpenGLDebug(GLenum source, GLenum type, unsigned int id, GLenum severity, GLsizei length, const char* message, const void* userParam);
+		void OpenGLDebug(GLenum source, GLenum type, unsigned int id, GLenum severity, GLsizei length, const char* message, const void* userParam);
 	}
 }

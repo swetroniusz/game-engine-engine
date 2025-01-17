@@ -4,6 +4,7 @@
 
 namespace GEE
 {
+	struct UniformBuffer;
 	class RenderToolboxCollection;
 	class Shader;
 

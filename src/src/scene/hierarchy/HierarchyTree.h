@@ -1,7 +1,6 @@
 #pragma once
 #include <utility/Utility.h>
 #include <string>
-#include <animation/Animation.h>
 
 namespace GEE
 {

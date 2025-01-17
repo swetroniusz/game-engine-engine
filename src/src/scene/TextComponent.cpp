@@ -1,6 +1,7 @@
 #include <scene/TextComponent.h>
 #include <game/GameScene.h>
 #include <assetload/FileLoader.h>
+#include <glad/glad.h>
 #include <rendering/RenderInfo.h>
 #include <rendering/material/Material.h>
 #include <rendering/RenderToolbox.h>
@@ -186,7 +187,7 @@ namespace GEE
 
 	void TextComponent::Render(const SceneMatrixInfo& info, Shader* shader)
 	{
-		if (!_Font || GetHide() || IsBeingKilled())
+		if (true || !_Font || GetHide() || IsBeingKilled())
 			return;
 
 		if (!ShaderInfo(MaterialShaderHint::None).MatchesRequiredInfo(info.GetRequiredShaderInfo()) && shader && shader->GetName() != "TextShader")
@@ -417,7 +418,7 @@ namespace GEE
 
 	void ScrollingTextComponent::Render(const SceneMatrixInfo& infoBeforeChange, Shader* shader)
 	{
-		if (!GetFont() || GetHide() || IsBeingKilled())
+		if (true || !GetFont() || GetHide() || IsBeingKilled())
 			return;
 
 		// Copy info

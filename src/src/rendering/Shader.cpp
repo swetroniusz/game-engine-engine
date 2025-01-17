@@ -1,3 +1,4 @@
+#include <glad/glad.h>
 #include <rendering/Shader.h>
 #include <fstream>
 

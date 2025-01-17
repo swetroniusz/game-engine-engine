@@ -1,11 +1,12 @@
+#include <glad/glad.h>
 #include <game/Game.h>
 #include <assetload/FileLoader.h>
-#include <rendering/LightProbe.h>
 #include <UI/Font.h>
 #include <scene/Controller.h>
 #include <scene/Actor.h>
 #include <input/InputDevicesStateRetriever.h>
 #include <thread>
+#include <glfw/glfw3.h>
 
 
 namespace GEE
@@ -482,7 +483,7 @@ namespace GEE
 		return gameScene;
 	}
 
-	void APIENTRY DebugCallbacks::OpenGLDebug(GLenum source,	//Copied from learnopengl.com - I don't think it's worth it to rewrite a bunch of couts.
+	void DebugCallbacks::OpenGLDebug(GLenum source,	//Copied from learnopengl.com - I don't think it's worth it to rewrite a bunch of couts.
 		GLenum type,
 		unsigned int id,
 		GLenum severity,

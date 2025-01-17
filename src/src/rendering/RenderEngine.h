@@ -10,7 +10,7 @@ namespace GEE
 	enum class LightType;
 	class Mesh;
 	class LightProbe;
-	struct LightProbeTextureArrays;
+	class LightProbeTextureArrays;
 	class LocalLightProbe;
 	class RenderableVolume;
 	class BoneComponent;

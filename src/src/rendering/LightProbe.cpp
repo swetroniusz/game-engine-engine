@@ -1,3 +1,4 @@
+#include <glad/glad.h>
 #include <rendering/LightProbe.h>
 #include <game/GameScene.h>
 #include <rendering/Framebuffer.h>

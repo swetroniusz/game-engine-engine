@@ -1,6 +1,7 @@
 ﻿#define CEREAL_LOAD_FUNCTION_NAME Load
 #define CEREAL_SAVE_FUNCTION_NAME Save
 #define CEREAL_SERIALIZE_FUNCTION_NAME Serialize
+#include <glad/glad.h>
 #include <rendering/Mesh.h>
 #include <assimp/scene.h>
 #include <assimp/Importer.hpp>

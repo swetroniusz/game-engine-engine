@@ -32,6 +32,7 @@
 
 #include <editor/MousePicking.h>
 #include <editor/GraphRenderingComponent.h>
+#include <glfw/glfw3.h>
 
 #include <rendering/Renderer.h>
 

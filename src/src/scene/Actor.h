@@ -1,6 +1,5 @@
 #pragma once
 #include <game/GameManager.h>
-#include <math/Transform.h>
 #include <utility/CerealNames.h>
 #include <cereal/access.hpp>
 
@@ -21,7 +20,8 @@ namespace GEE
 	class Actor
 	{
 	public:
-		Actor(GameScene&, Actor* parentActor, const std::string& name, const Transform& t = Transform());
+		Actor(GameScene&, Actor* parentActor, const std::string& name);
+		Actor(GameScene&, Actor* parentActor, const std::string& name, const Transform& t);
 	/*private:
 		/**
 		 * @brief Copy constructor only to be used in Actor::CopyChild. The constructor won't copy its children and won't add itself as a child of the original copied Actor.

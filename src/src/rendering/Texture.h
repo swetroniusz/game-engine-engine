@@ -1,14 +1,13 @@
 #pragma once
 #include <string>
-#include <glad/glad.h>
 #include <math/Vec.h>
-#include <utility/CerealNames.h>
 #include <cereal/access.hpp>
 #include <array>
 
 #include "utility/Asserts.h"
 
 struct aiTexture;
+typedef unsigned int GLenum;
 
 namespace GEE
 {
@@ -26,7 +25,7 @@ namespace GEE
 		 * @brief Constructs undefined texture, which does not refer to any ID of a texture on the GPU.
 		*/
 		Texture();
-		unsigned int GenerateID(GLenum type = GL_ZERO);
+		unsigned int GenerateID(GLenum type = 0);
 
 		/**
 		 * @brief Binds this Texture, which allows to make changes to its OpenGL state. Many methods which do that will call Bind automatically, unless you pass an argument that disables it - to save performance.
@@ -152,18 +151,18 @@ namespace GEE
 		class Format
 		{
 		public:
-			static Format None() { return GL_ZERO; }
-			static Format Red() { return GL_RED; }
-			static Format Green() { return GL_GREEN; }
-			static Format Blue() { return GL_BLUE; }
-			static Format RG() { return GL_RG; }
-			static Format RGB() { return GL_RGB; }
-			static Format SRGB() { return GL_SRGB; }
-			static Format RGBA() { return GL_RGBA; }
-			static Format SRGBA() { return GL_SRGB_ALPHA; }
+			static Format None();
+			static Format Red();
+			static Format Green();
+			static Format Blue();
+			static Format RG();
+			static Format RGB();
+			static Format SRGB();
+			static Format RGBA();
+			static Format SRGBA();
 
-			static Format Depth() { return GL_DEPTH_COMPONENT; }
-			static Format DepthStencil() { return GL_DEPTH_STENCIL; }
+			static Format Depth();
+			static Format DepthStencil();
 
 			static Format FromNrChannels(unsigned int nrChannels)
 			{
@@ -185,10 +184,10 @@ namespace GEE
 
 			struct Float16
 			{
-				static Format Red() { return GL_R16F; }
-				static Format RG() { return GL_RG16F; }
-				static Format RGB() { return GL_RGB16F; }
-				static Format RGBA() { return GL_RGBA16F; }
+				static Format Red();
+				static Format RG();
+				static Format RGB();
+				static Format RGBA();
 
 				static Format FromNrChannels(unsigned int nrChannels)
 				{
@@ -203,10 +202,10 @@ namespace GEE
 			};
 			struct Float32
 			{
-				static Format Red() { return GL_R32F; }
-				static Format RG() { return GL_RG32F; }
-				static Format RGB() { return GL_RGB32F; }
-				static Format RGBA() { return GL_RGBA32F; }
+				static Format Red();
+				static Format RG();
+				static Format RGB();
+				static Format RGBA();
 
 				static Format FromNrChannels(unsigned int nrChannels)
 				{
@@ -222,13 +221,13 @@ namespace GEE
 
 			struct Uint32
 			{
-				static Format Depth24Stencil8() { return GL_DEPTH24_STENCIL8; }
-				static Format RGBA() { return GL_RGBA32UI; }
+				static Format Depth24Stencil8();
+				static Format RGBA();
 			};
 			
 			struct Integer
 			{
-				static Format RGBA() { return GL_RGBA_INTEGER; }
+				static Format RGBA();
 			};
 
 			GLenum GetEnumGL() const { return FormatGl; }
@@ -238,18 +237,9 @@ namespace GEE
 			GLenum FormatGl;
 		};
 
-		template <typename Archive> void Save(Archive& archive) const
-		{
-			archive(cereal::make_nvp("Type", Type), cereal::make_nvp("InternalFormat", InternalFormat.GetEnumGL()), cereal::make_nvp("Path", Path));
-		}
-		template <typename Archive> void Load(Archive& archive)
-		{
-			GLenum internalFormat;
-			archive(cereal::make_nvp("Type", Type), cereal::make_nvp("InternalFormat", internalFormat), cereal::make_nvp("Path", Path));
+		template <typename Archive> void Save(Archive& archive) const;
 
-			*this = Loader<>::FromFile2D(Path, Format::FromGLConst(internalFormat), false, MinFilter::Trilinear(), MagFilter::Bilinear());
-			SetWrap(GL_REPEAT, GL_REPEAT, 0, true);
-		}
+		template <typename Archive> void Load(Archive& archive);
 
 	protected:
 		Texture(const Vec2u& size, GLenum type, Format internalFormat = Format::RGBA(), unsigned int id = 0, const std::string& path = "");

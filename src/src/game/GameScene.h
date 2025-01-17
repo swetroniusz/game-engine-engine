@@ -3,6 +3,8 @@
 #include <scene/Actor.h>
 #include <utility/Utility.h>
 
+#include "rendering/UniformBuffer.h"
+
 namespace physx
 {
 	class PxScene;
@@ -318,7 +320,7 @@ namespace GEE
 
 	namespace Physics
 	{
-		class CollisionObject;
+		struct CollisionObject;
 		class GameScenePhysicsData : public GameSceneData
 		{
 		public:

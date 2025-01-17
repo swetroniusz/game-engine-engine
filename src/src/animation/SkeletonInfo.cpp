@@ -1,9 +1,11 @@
 #include <array>
+#include <glad/glad.h>
 #include <animation/SkeletonInfo.h>
 #include <game/GameScene.h>
 #include <scene/BoneComponent.h>
 #include <scene/ModelComponent.h>
 #include <cereal/types/vector.hpp>
+#include <rendering/UniformBuffer.h>
 
 namespace GEE
 {

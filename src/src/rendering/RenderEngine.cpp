@@ -1,11 +1,9 @@
+#include <glad/glad.h>
 #include <rendering/RenderEngine.h>
 #include <game/GameScene.h>
 #include <assetload/FileLoader.h>
-#include <scene/LightComponent.h>
-#include <scene/ModelComponent.h>
 #include <rendering/LightProbe.h>
 #include <scene/LightProbeComponent.h>
-#include <rendering/RenderableVolume.h>
 #include <scene/hierarchy/HierarchyTree.h>
 #include <UI/Font.h>
 #include <random> //DO WYJEBANIA

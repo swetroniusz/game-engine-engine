@@ -4,6 +4,7 @@
 #include <vector>
 #include <string> 
 
+
 namespace GEE
 {
 	namespace GEE_FB
@@ -29,13 +30,13 @@ namespace GEE
 			 * @param colorSlot: the index of the color slot to be returned. Must not be negative.
 			 * @return the color slot at the passed index.
 			*/
-			static AttachmentSlot Color(unsigned int colorSlot) { return AttachmentSlot(GL_COLOR_ATTACHMENT0 + colorSlot, true); }
+			static AttachmentSlot Color(unsigned int colorSlot);
 
-			static AttachmentSlot Depth() { return GL_DEPTH_ATTACHMENT; }
-			static AttachmentSlot Stencil() { return GL_STENCIL_ATTACHMENT; }
-			static AttachmentSlot DepthStencil() { return GL_DEPTH_STENCIL_ATTACHMENT; }
+			static AttachmentSlot Depth();
+			static AttachmentSlot Stencil();
+			static AttachmentSlot DepthStencil();
 
-			static AttachmentSlot None() { return GL_ZERO; }
+			static AttachmentSlot None() { return 0; }
 
 			GLenum GetEnumGL() const { return SlotGL; }
 			bool IsColorAttachment() const { return bColorAttachment; }

@@ -2,6 +2,8 @@
 #include <stb_image.h>
 #include <iostream>
 #include <assimp/texture.h>
+#include <glad/glad.h>
+#include <utility/Serialisation.h>
 
 
 namespace GEE
@@ -130,6 +132,72 @@ namespace GEE
 	{
 		return Texture(size, type, internalFormat, glID);
 	}
+
+	Texture::Format Texture::Format::None()
+	{ return GL_ZERO; }
+
+	Texture::Format Texture::Format::Red()
+	{ return GL_RED; }
+
+	Texture::Format Texture::Format::Green()
+	{ return GL_GREEN; }
+
+	Texture::Format Texture::Format::Blue()
+	{ return GL_BLUE; }
+
+	Texture::Format Texture::Format::RG()
+	{ return GL_RG; }
+
+	Texture::Format Texture::Format::RGB()
+	{ return GL_RGB; }
+
+	Texture::Format Texture::Format::SRGB()
+	{ return GL_SRGB; }
+
+	Texture::Format Texture::Format::RGBA()
+	{ return GL_RGBA; }
+
+	Texture::Format Texture::Format::SRGBA()
+	{ return GL_SRGB_ALPHA; }
+
+	Texture::Format Texture::Format::Depth()
+	{ return GL_DEPTH_COMPONENT; }
+
+	Texture::Format Texture::Format::DepthStencil()
+	{ return GL_DEPTH_STENCIL; }
+
+	Texture::Format Texture::Format::Float16::Red()
+	{ return GL_R16F; }
+
+	Texture::Format Texture::Format::Float16::RG()
+	{ return GL_RG16F; }
+
+	Texture::Format Texture::Format::Float16::RGB()
+	{ return GL_RGB16F; }
+
+	Texture::Format Texture::Format::Float16::RGBA()
+	{ return GL_RGBA16F; }
+
+	Texture::Format Texture::Format::Float32::Red()
+	{ return GL_R32F; }
+
+	Texture::Format Texture::Format::Float32::RG()
+	{ return GL_RG32F; }
+
+	Texture::Format Texture::Format::Float32::RGB()
+	{ return GL_RGB32F; }
+
+	Texture::Format Texture::Format::Float32::RGBA()
+	{ return GL_RGBA32F; }
+
+	Texture::Format Texture::Format::Uint32::Depth24Stencil8()
+	{ return GL_DEPTH24_STENCIL8; }
+
+	Texture::Format Texture::Format::Uint32::RGBA()
+	{ return GL_RGBA32UI; }
+
+	Texture::Format Texture::Format::Integer::RGBA()
+	{ return GL_RGBA_INTEGER; }
 
 	GLenum Texture::Impl::GetTextureFilterGL(TextureFilter filter)
 	{
@@ -314,6 +382,23 @@ namespace GEE
 		return internalFormat;
 
 	}
+
+	template <typename Archive>
+	void Texture::Save(Archive& archive) const
+	{
+		archive(cereal::make_nvp("Type", Type), cereal::make_nvp("InternalFormat", InternalFormat.GetEnumGL()), cereal::make_nvp("Path", Path));
+	}
+
+	template <typename Archive>
+	void Texture::Load(Archive& archive)
+	{
+		GLenum internalFormat;
+		archive(cereal::make_nvp("Type", Type), cereal::make_nvp("InternalFormat", internalFormat), cereal::make_nvp("Path", Path));
+
+		*this = Loader<>::FromFile2D(Path, Format::FromGLConst(internalFormat), false, MinFilter::Trilinear(), MagFilter::Bilinear());
+		SetWrap(GL_REPEAT, GL_REPEAT, 0, true);
+	}
+
 	template <> GLenum Texture::Loader<unsigned int>::Impl::GetChannelTypeEnum() { return GL_UNSIGNED_INT; }
 	template <> GLenum Texture::Loader<float>::Impl::GetChannelTypeEnum() { return GL_FLOAT; }
 	template <> GLenum Texture::Loader<Texture::LoaderArtificialType::Uint24_8>::Impl::GetChannelTypeEnum() { return GL_UNSIGNED_INT_24_8; }
@@ -383,3 +468,4 @@ namespace GEE
 		ShaderName = name;
 	}
 }
+GEE_SERIALIZATION_INST_DEFAULT(GEE::Texture);

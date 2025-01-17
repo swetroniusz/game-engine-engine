@@ -11,6 +11,7 @@
 #include <editor/EditorActions.h>
 
 #include "rendering/RenderEngineManager.h"
+#include <glad/glad.h>
 
 namespace GEE
 {

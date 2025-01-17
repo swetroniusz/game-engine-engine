@@ -1,5 +1,5 @@
-#include <rendering/Viewport.h>
 #include <glad/glad.h>
+#include <rendering/Viewport.h>
 
 namespace GEE
 {

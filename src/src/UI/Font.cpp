@@ -1,5 +1,6 @@
 #include <UI/Font.h>
 #include <iostream>
+#include <glad/glad.h>
 #include <utility/Asserts.h>
 
 namespace GEE

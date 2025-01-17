@@ -1,11 +1,13 @@
 #define STB_IMAGE_IMPLEMENTATION
 
+#include <glad/glad.h>
 #include <editor/GameEngineEngineEditor.h>
 #include <scene/LightProbeComponent.h>
 #include <UI/UICanvasField.h>
 #include <scene/GunActor.h>
 #include <scene/Controller.h>
 #include <editor/EditorActions.h>
+#include <glfw/glfw3.h>
 
 
 using namespace GEE;

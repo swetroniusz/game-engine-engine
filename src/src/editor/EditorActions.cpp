@@ -20,6 +20,7 @@
 #include <scene/ModelComponent.h>
 #include <editor/EditorManager.h>
 #include <editor/DefaultEditorController.h>
+#include <glfw/glfw3.h>
 
 #include "GameEngineEngineEditor.h"
 #include "rendering/RenderEngineManager.h"

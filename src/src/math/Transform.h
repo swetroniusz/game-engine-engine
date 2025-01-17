@@ -1,15 +1,15 @@
 #pragma once
-#include <animation/Animation.h>
-#include <glfw/glfw3.h>
-#include <glm/gtx/euler_angles.hpp>
 #include <string>
 #include <utility/CerealNames.h>
 #include <cereal/archives/json.hpp>
 #include "Vec.h"
+#include "animation/Animation.h"
+#include "utility/Utility.h"
 
 
 namespace GEE
 {
+	class InterpolatorBase;
 	class EditorDescriptionBuilder;
 
 	enum class VecAxis	//VectorAxis

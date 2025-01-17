@@ -17,6 +17,11 @@ void ComponentDefaultDeleter::operator()(Component* comp)
 	delete comp;
 }
 
+Actor::Actor(GameScene& scene, Actor* parentActor, const std::string& name):
+	Actor(scene, parentActor, name, Transform())
+{
+}
+
 Actor::Actor(GameScene& scene, Actor* parentActor, const std::string& name, const Transform& t) :
 	Name(name),
 	ActorGEEID(IDSystem<Actor>::GenerateID()),

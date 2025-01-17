@@ -1,5 +1,6 @@
 #include <scene/UIInputBoxActor.h>
 #include <game/GameScene.h>
+#include <glfw/glfw3.h>
 #include <input/Event.h>
 #include <scene/TextComponent.h>
 #include <scene/ModelComponent.h>
@@ -403,6 +404,7 @@ namespace GEE
 
 	void UIInputBoxActor::UpdateCaretModel(bool refreshAnim)
 	{
+		return;
 		if (!CaretComponent)
 			return;
 

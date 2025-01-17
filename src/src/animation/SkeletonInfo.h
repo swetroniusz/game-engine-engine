@@ -2,6 +2,8 @@
 #include <game/GameManager.h>
 #include <utility/CerealNames.h>
 
+#include "rendering/UniformBuffer.h"
+
 namespace GEE
 {
 	class ModelComponent;

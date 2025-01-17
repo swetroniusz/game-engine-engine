@@ -3,6 +3,7 @@
 #include <string>
 #include <array>
 
+typedef unsigned int GLenum;
 namespace GEE
 {
 	enum MatrixType
@@ -25,6 +26,8 @@ namespace GEE
 
 	class EditorDescriptionBuilder;
 	class Material;
+
+	typedef int GLint;
 
 	class Shader
 	{

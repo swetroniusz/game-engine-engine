@@ -1,3 +1,4 @@
+#include <glad/glad.h>
 #include <rendering/Mesh.h>
 #include <assetload/FileLoader.h>
 #include <scene/hierarchy/HierarchyTree.h>

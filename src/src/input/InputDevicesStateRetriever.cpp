@@ -1,3 +1,4 @@
+#include <glfw/glfw3.h>
 #include <input/InputDevicesStateRetriever.h>
 
 namespace GEE

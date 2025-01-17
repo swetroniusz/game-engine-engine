@@ -1,3 +1,4 @@
+#include <glad/glad.h>
 #include "OutlineRenderer.h"
 
 #include "Framebuffer.h"

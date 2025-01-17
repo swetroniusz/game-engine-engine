@@ -1,5 +1,5 @@
+#include <glad/glad.h>
 #include "MousePicking.h"
-#include <rendering/RenderEngine.h>
 #include <rendering/Texture.h>
 #include <game/GameScene.h>
 #include <scene/RenderableComponent.h>

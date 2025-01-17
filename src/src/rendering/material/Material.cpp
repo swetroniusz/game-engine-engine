@@ -1,3 +1,4 @@
+#include <glad/glad.h>
 #include <rendering/material/Material.h>
 #include <rendering/Texture.h>
 #include <assimp/material.h>
